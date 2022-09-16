@@ -66,6 +66,31 @@ public class ECKeyValue extends Signature11ElementProxy implements KeyValueConte
         1
     );
 
+     /* Supported curve, sm2p256c1 */
+     private static final Curve SM2P256C1 = initializeCurve(
+        "sm2p256c1 [NIST SM2C1-256, X9.62 prime256c1]",
+        "1.2.156.10197.1.301.1",
+        "FFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000FFFFFFFFFFFFFFFF",
+            "FFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000FFFFFFFFFFFFFFFC",
+            "28E9FA9E9D9F5E344D5A9E4BCF6509A7F39789F515AB8F92DDBCBD414D940E93",
+            "32C4AE2C1F1981195F9904466A39C9948FE30BBFF2660BE1715A4589334C74C7",
+            "BC3736A2F4F6779C59BDCEE36B692153D0A9877CC62A474002DF32E52139F0A0",
+            "FFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFF7203DF6B21C6052B53BBF40939D54123",
+        1
+    );
+     /* Supported curve, sm2p256c2 */
+     private static final Curve SM2P256C2 = initializeCurve(
+        "sm2p256c2 [NIST SM2C2-256, X9.62 prime256c1]",
+        "1.2.156.10197.1.301.2",
+        "8542D69E4C044F18E8B92435BF6FF7DE457283915C45517D722EDB8B08F1DFC3",
+            "787968B4FA32C3FD2417842E73BBFEFF2F3C848B6831D7E0EC65228B3937E498",
+            "63E4C6D3B23B0C849CF84241484BFE48F61D59A5B16BA06E6E12D1DA27C5249A",
+            "421DEBD61B62EAB6746434EBC3CC315E32220B3BADD50BDC4C4E6C147FEDD43D",
+            "0680512BCBB42C07D47349D2153B70C4E5D7FDFCBFA36EA1A85841B9E46E09A2",
+            "8542D69E4C044F18E8B92435BF6FF7DD297720630485628D5AE74EE7C32E79B7",
+        1
+    );
+
     /* Supported curve secp384r1 */
     private static final Curve SECP384R1 = initializeCurve(
         "secp384r1 [NIST P-384]",
@@ -259,6 +284,10 @@ public class ECKeyValue extends Signature11ElementProxy implements KeyValueConte
         Curve match;
         if (matchCurve(params, SECP256R1)) {
             match = SECP256R1;
+        }else if (matchCurve(params, SM2P256C1)) {
+            match = SM2P256C1;
+        }else if (matchCurve(params, SM2P256C2)) {
+            match = SM2P256C2;
         } else if (matchCurve(params, SECP384R1)) {
             match = SECP384R1;
         } else if (matchCurve(params, SECP521R1)) {

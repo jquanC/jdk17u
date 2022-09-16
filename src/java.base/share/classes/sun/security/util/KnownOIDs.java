@@ -306,6 +306,13 @@ public enum KnownOIDs {
     prime239v3("1.2.840.10045.3.1.6", "X9.62 prime239v3"),
     secp256r1("1.2.840.10045.3.1.7",
             "secp256r1", "NIST P-256", "X9.62 prime256v1"),
+
+    //modifyed
+    sm2p256c1("1.2.156.10197.1.301.1",
+            "sm2p256c1", "NIST SM2C1-256", "X9.62 prime256c1"),
+    sm2p256c2("1.2.156.10197.1.301.2",
+            "sm2p256c2", "NIST SM2C2-256", "X9.62 prime256c2"), 
+
     SHA1withECDSA("1.2.840.10045.4.1"),
     SHA224withECDSA("1.2.840.10045.4.3.1"),
     SHA256withECDSA("1.2.840.10045.4.3.2"),

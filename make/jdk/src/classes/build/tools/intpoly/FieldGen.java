@@ -117,6 +117,22 @@ public class FieldGen {
         result.addAll(simpleSmallCrSequence(10));
         return result;
     }
+    //add sm2 P
+    static FieldParams SM2C1 = new FieldParams(
+            "IntegerPolynomialSM2C1", 26, 10, 2, 256,
+            Arrays.asList(
+                    new Term(224, -1),
+                    new Term(96, -1),
+                    new Term(64, 1),
+                    new Term(0, -1)
+            ),
+            P256CrSequence(), simpleSmallCrSequence(10)
+    );
+    static FieldParams SM2C2 = new FieldParams(
+            "IntegerPolynomialSM2C2", 26, 10, 2, 256,
+            "8542D69E4C044F18E8B92435BF6FF7DE457283915C45517D722EDB8B08F1DFC3",
+            P256CrSequence(), simpleSmallCrSequence(10)
+    );
 
     static FieldParams P384 = new FieldParams(
             "IntegerPolynomialP384", 28, 14, 2, 384,
@@ -155,6 +171,18 @@ public class FieldGen {
             "P256OrderField", 26, 10, 1, 256,
             "FFFFFFFF00000000FFFFFFFFFFFFFFFFBCE6FAADA7179E84F3B9CAC2FC632551",
             orderFieldCrSequence(10), orderFieldSmallCrSequence(10)
+    );
+
+    //add sm2 Order
+    static FieldParams OSM2C1 = new FieldParams(
+            "SM2C1OrderField", 26, 10, 1, 256,
+            "FFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFF7203DF6B21C6052B53BBF40939D54123",
+            orderFieldCrSequence(10), orderFieldSmallCrSequence(10)
+    );
+    static FieldParams OSM2C2 = new FieldParams(
+        "SM2C2OrderField", 26, 10, 1, 256,
+        "8542D69E4C044F18E8B92435BF6FF7DD297720630485628D5AE74EE7C32E79B7",
+        orderFieldCrSequence(10), orderFieldSmallCrSequence(10)
     );
 
     static FieldParams O384 = new FieldParams(
@@ -225,7 +253,7 @@ public class FieldGen {
 
     static final FieldParams[] ALL_FIELDS = {
             Curve25519, Curve448,
-            P256, P384, P521, O256, O384, O521, O25519, O448
+            P256,SM2C1,SM2C2,P384, P521, O256,OSM2C1,OSM2C2, O384, O521, O25519, O448
     };
 
     public static class Term {

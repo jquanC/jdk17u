@@ -69,7 +69,7 @@ public class KeyAgreementTest {
         // of curves define in
         // "java.base/share/classes/sun/security/util/CurveDB.java"
 
-        ECDH("secp256r1", "secp384r1", "secp521r1"),
+        ECDH("secp256r1","secp384r1", "secp521r1"),
         XDH("X25519", "X448", "x25519"),
         // There is no curve for DiffieHellman
         DiffieHellman(new String[]{});

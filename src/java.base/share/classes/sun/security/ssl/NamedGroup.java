@@ -167,6 +167,16 @@ enum NamedGroup {
             NamedGroupSpec.NAMED_GROUP_ECDHE,
             ProtocolVersion.PROTOCOLS_TO_13,
             CurveDB.lookup("secp256r1")),
+//add sm2
+    SM2P256_C1(0x001A, "sm2p256c1",
+    NamedGroupSpec.NAMED_GROUP_ECDHE,
+    ProtocolVersion.PROTOCOLS_TO_13,
+    CurveDB.lookup("sm2p256c1")),
+
+    SM2P256_C2(0x001B, "sm2p256c2",
+            NamedGroupSpec.NAMED_GROUP_ECDHE,
+            ProtocolVersion.PROTOCOLS_TO_13,
+            CurveDB.lookup("sm2p256c2")),
 
     // NIST P-384
     SECP384_R1(0x0018, "secp384r1",

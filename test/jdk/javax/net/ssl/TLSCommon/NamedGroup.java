@@ -27,6 +27,8 @@
 public enum NamedGroup {
 
     SECP256R1("secp256r1"),
+    SM2P256C1("sm2p256c1"),
+    SM2P256C2("sm2p256c2"),
     SECP384R1("secp384r1"),
     SECP521R1("secp521r1"),
 

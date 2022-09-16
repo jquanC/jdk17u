@@ -57,12 +57,16 @@ public class ECOperations {
 
     static final Map<BigInteger, IntegerFieldModuloP> fields = Map.of(
         IntegerPolynomialP256.MODULUS, new IntegerPolynomialP256(),
+        IntegerPolynomialSM2C1.MODULUS, new IntegerPolynomialSM2C1(),
+        IntegerPolynomialSM2C2.MODULUS, new IntegerPolynomialSM2C2(),
         IntegerPolynomialP384.MODULUS, new IntegerPolynomialP384(),
         IntegerPolynomialP521.MODULUS, new IntegerPolynomialP521()
     );
 
     static final Map<BigInteger, IntegerFieldModuloP> orderFields = Map.of(
         P256OrderField.MODULUS, new P256OrderField(),
+        SM2C1OrderField.MODULUS, new SM2C1OrderField(),
+        SM2C2OrderField.MODULUS, new SM2C2OrderField(),
         P384OrderField.MODULUS, new P384OrderField(),
         P521OrderField.MODULUS, new P521OrderField()
     );
