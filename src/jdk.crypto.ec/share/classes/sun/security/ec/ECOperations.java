@@ -75,21 +75,37 @@ public class ECOperations {
 
         EllipticCurve curve = params.getCurve();
         if (!(curve.getField() instanceof ECFieldFp)) {
+            System.out.println("test:curve.getField() instanceof ECFieldFp fail");
             return Optional.empty();
         }
         ECFieldFp primeField = (ECFieldFp) curve.getField();
 
         BigInteger three = BigInteger.valueOf(3);
-        if (!primeField.getP().subtract(curve.getA()).equals(three)) {
-            return Optional.empty();
+
+        //this check rule is invalid for sm2c2 type
+        BigInteger exSM2C2P = new BigInteger("8542D69E4C044F18E8B92435BF6FF7DE457283915C45517D722EDB8B08F1DFC3",16);
+        if(primeField.getP().compareTo(exSM2C2P)!=0){
+            if (!primeField.getP().subtract(curve.getA()).equals(three)) {
+                System.out.println("test:primeField.getP().subtract(curve.getA()).equals(three)");
+                return Optional.empty();
+            }
         }
+        
+
+        // if (!primeField.getP().subtract(curve.getA()).equals(three)) {
+        //     System.out.println("test:primeField.getP().subtract(curve.getA()).equals(three)");
+        //     return Optional.empty();
+        // }
+        
         IntegerFieldModuloP field = fields.get(primeField.getP());
         if (field == null) {
+            System.out.println("test:field == null");
             return Optional.empty();
         }
 
         IntegerFieldModuloP orderField = orderFields.get(params.getOrder());
         if (orderField == null) {
+            System.out.println("test:orderField == null");
             return Optional.empty();
         }
 

@@ -130,7 +130,13 @@ public class FieldGen {
     );
     static FieldParams SM2C2 = new FieldParams(
             "IntegerPolynomialSM2C2", 26, 10, 2, 256,
-            "8542D69E4C044F18E8B92435BF6FF7DE457283915C45517D722EDB8B08F1DFC3",
+            // "8542D69E4C044F18E8B92435BF6FF7DE457283915C45517D722EDB8B08F1DFC3",
+            Arrays.asList(
+                    new Term(224, -1),
+                    new Term(96, -1),
+                    new Term(64, 1),
+                    new Term(0, -1)
+            ),//In the generated place of "IntegerPolynomialSM2C2" to return the actual Modulo when use, this place does not matter
             P256CrSequence(), simpleSmallCrSequence(10)
     );
 
@@ -652,8 +658,14 @@ public class FieldGen {
                 + params.getNumLimbs() + ";");
         result.appendLine("private static final int MAX_ADDS = "
                 + params.getMaxAdds() + ";");
-        result.appendLine(
+        //return actual modulusHex for sm2p256c2
+        if(params.getClassName().equals("IntegerPolynomialSM2C2")){
+            result.appendLine(
+                "public static final BigInteger MODULUS = new BigInteger(\"8542D69E4C044F18E8B92435BF6FF7DE457283915C45517D722EDB8B08F1DFC3\", 16);");
+        }else{
+            result.appendLine(
                 "public static final BigInteger MODULUS = evaluateModulus();");
+        }                
         result.appendLine("private static final long CARRY_ADD = 1 << "
                 + (params.getBitsPerLimb() - 1) + ";");
         if (params.getBitsPerLimb() * params.getNumLimbs() != params.getPower()) {

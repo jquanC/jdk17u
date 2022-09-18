@@ -80,7 +80,7 @@ public class ECKeyValue extends Signature11ElementProxy implements KeyValueConte
     );
      /* Supported curve, sm2p256c2 */
      private static final Curve SM2P256C2 = initializeCurve(
-        "sm2p256c2 [NIST SM2C2-256, X9.62 prime256c1]",
+        "sm2p256c2 [NIST SM2C2-256, X9.62 prime256c2]",
         "1.2.156.10197.1.301.2",
         "8542D69E4C044F18E8B92435BF6FF7DE457283915C45517D722EDB8B08F1DFC3",
             "787968B4FA32C3FD2417842E73BBFEFF2F3C848B6831D7E0EC65228B3937E498",
